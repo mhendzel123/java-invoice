@@ -20,9 +20,11 @@ public class Invoice {
         }
         products.put(product, quantity);
     }
-//commm
+    
+    //commm
+    
     public BigDecimal getNetTotal() {
-    BigDecimal totalNet = BigDecimal.ZERO;
+        BigDecimal totalNet = BigDecimal.ZERO;
         for (Product product : products.keySet()) {
             BigDecimal quantity = new BigDecimal(products.get(product));
             totalNet = totalNet.add(product.getPrice().multiply(quantity));
