@@ -2,5 +2,3 @@ language: java
 script:
   - mvn checkstyle:check
   - mvn test
-  after_success:
-  - bash <(curl -s https://codecov.io/bash)
