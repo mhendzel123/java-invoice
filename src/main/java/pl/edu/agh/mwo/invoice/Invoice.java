@@ -46,4 +46,12 @@ public class Invoice {
     public int getNumber() {
         return number;
     }
+    
+    public void showProducts() {
+        System.out.print(number);
+        for (Product product : products.keySet()) {
+            System.out.print(product.getName() + products.get(product) + product.getPrice());
+        }
+        System.out.print(products.size());
+    }
 }
