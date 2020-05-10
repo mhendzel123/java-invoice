@@ -42,6 +42,7 @@ public class Invoice {
 		return totalGross;
 	}
 
+	
 	public int getNumber() {
 		return Math.abs(new Random().nextInt());
 	}
