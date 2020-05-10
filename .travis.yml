@@ -2,8 +2,3 @@ language: java
 script:
   - mvn checkstyle:check
   - mvn test
-<<<<<<< HEAD
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-=======
->>>>>>> 8317e628e3163c7788d3053a08c449eae69904d3
