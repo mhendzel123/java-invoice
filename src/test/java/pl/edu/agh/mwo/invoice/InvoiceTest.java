@@ -124,4 +124,19 @@ public class InvoiceTest {
 		int number2 = new Invoice().getNumber();
 		Assert.assertEquals(number, number2 - 1);
 	}
+	
+	@Test
+	public void testCorrectQuantityOnDuplicateProducts() {
+		Product p1 = new DairyProduct("Zsiadle mleko", new BigDecimal("1.00"));
+		Product p2 = new TaxFreeProduct("Tablet", new BigDecimal("1678"));
+		invoice.addProduct(p1, 1);
+		invoice.addProduct(p1, 1);
+		invoice.addProduct(p2, 1);
+		Assert.assertThat(2, Matchers.comparesEqualTo(invoice.showItems().size()));
+		int sum = 0;
+		for (int quant : invoice.showItems().values()) {
+			sum += quant;
+		}
+		Assert.assertEquals(3, sum);
+	}
 }
