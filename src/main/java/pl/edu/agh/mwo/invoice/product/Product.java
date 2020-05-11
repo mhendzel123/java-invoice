@@ -3,7 +3,7 @@ package pl.edu.agh.mwo.invoice.product;
 import java.math.BigDecimal;
 
 public abstract class Product {
-	
+
     private final String name;
     private final BigDecimal price;
     private final BigDecimal taxPercent;
