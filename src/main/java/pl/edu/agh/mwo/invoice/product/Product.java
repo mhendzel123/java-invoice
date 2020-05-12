@@ -37,7 +37,7 @@ public abstract class Product {
         return taxPercent;
     }
     
-    public BigDecimal excise() {
+    public BigDecimal getExcise() {
         return excise;
     }
 

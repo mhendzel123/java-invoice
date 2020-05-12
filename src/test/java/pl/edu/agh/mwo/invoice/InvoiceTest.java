@@ -1,6 +1,8 @@
 package pl.edu.agh.mwo.invoice;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Objects;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
@@ -138,5 +140,18 @@ public class InvoiceTest {
 			sum += quant;
 		}
 		Assert.assertEquals(3, sum);
+	}
+	
+	@Test
+	public void testInvoicePrint() {
+		invoice.addProduct(new TaxFreeProduct("Tablet", new BigDecimal("1678")), 1);
+		String a = "Numer faktury: 1";
+		String b = "[Tablet] [Ilosc: 1] [Cena: 1678]";
+		String c = "Liczba pozycji: 1"; 
+		ArrayList<String> inv = new ArrayList<>();
+		inv.add(a);
+		inv.add(b);
+		inv.add(c);
+		Objects.equals(inv, invoice.printProducts());
 	}
 }

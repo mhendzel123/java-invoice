@@ -1,10 +1,12 @@
 package pl.edu.agh.mwo.invoice;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import pl.edu.agh.mwo.invoice.product.DairyProduct;
 import pl.edu.agh.mwo.invoice.product.Product;
+import pl.edu.agh.mwo.invoice.product.TaxFreeProduct;
 
 public class Invoice {
     private Map<Product, Integer> products = new HashMap<>();
@@ -52,16 +54,22 @@ public class Invoice {
         return number;
     }
 
-    public void printProducts() {
-        System.out.println("Numer faktury: " + number);
+    public ArrayList<String> printProducts() {
+    	ArrayList<String> invCont = new ArrayList<>();
+        String inv = new String("Numer faktury: " + number);
+        invCont.add(inv);
+        String itm = new String();
         for (Product product : products.keySet()) {
-            System.out.println("[" + product.getName() + "] [Ilosc: " 
-                + products.get(product) + "] [Cena: " + product.getPrice() + "]");
+            itm = new String("[" + product.getName() + "] [Ilosc: " + products.get(product) + "] [Cena: " + product.getPrice() + "]");
+            invCont.add(itm);
         }
-        System.out.println("Liczba pozycji: " + products.size());
+        String sz = new String("Liczba pozycji: " + products.size());
+        invCont.add(sz);
+        return invCont;
     }
 
     public Map<Product, Integer> showItems() {
         return products;
     }
 }
+
