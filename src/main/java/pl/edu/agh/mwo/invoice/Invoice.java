@@ -55,12 +55,13 @@ public class Invoice {
     }
 
     public ArrayList<String> printProducts() {
-    	ArrayList<String> invCont = new ArrayList<>();
+        ArrayList<String> invCont = new ArrayList<>();
         String inv = new String("Numer faktury: " + number);
         invCont.add(inv);
         String itm = new String();
         for (Product product : products.keySet()) {
-            itm = new String("[" + product.getName() + "] [Ilosc: " + products.get(product) + "] [Cena: " + product.getPrice() + "]");
+            itm = new String("[" + product.getName() + "] [Ilosc: " + products.get(product) + "]"
+                    + "[Cena: " + product.getPrice() + "]");
             invCont.add(itm);
         }
         String sz = new String("Liczba pozycji: " + products.size());
